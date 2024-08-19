@@ -1,0 +1,83 @@
+{
+  "name": "password-strength-analyzer",
+  "version": "0.0.0",
+  "description": "password-strength-estimator is a React hook for assessing password strength. It provides feedback on password validity based on configurable rules, calculates the password score, and evaluates its entropy",
+  "type": "module",
+  "main": "dist/password-strength-analyzer.cjs.js",
+  "module": "dist/password-strength-analyzer.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc -b && vite build",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rozhkoy/password-strength-analyzer.git"
+  },
+  "keywords": [
+    "npm",
+    "password",
+    "strength",
+    "checker",
+    "check password strength",
+    "password strength checker",
+    "strength checker",
+    "password checker",
+    "password checker strength",
+    "strength password checker",
+    "check-password-strength",
+    "password-strength-checker",
+    "strength-checker",
+    "password-checker",
+    "password-checker-strength",
+    "strength-password-checker",
+    "pass-strength",
+    "password security",
+    "password validation",
+    "password analysis",
+    "password strength analysis",
+    "password entropy",
+    "password score",
+    "secure password",
+    "password metrics",
+    "password evaluation",
+    "entropy"
+  ],
+  "author": "rozhkoy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rozhkoy/password-strength-analyzer/issues"
+  },
+  "homepage": "https://github.com/rozhkoy/password-strength-analyzer#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite-plugin-dts": "^4.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.1.6",
+    "@semantic-release/npm": "^12.0.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "jsdom": "^24.1.1",
+    "semantic-release": "^24.1.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
+  }
+}
