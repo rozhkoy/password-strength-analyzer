@@ -12,6 +12,7 @@
   "scripts": {
     "test": "vitest",
     "build": "tsc -b && vite build",
+		"prepublishOnly": "npm run build",
     "lint": "eslint ."
   },
   "repository": {
