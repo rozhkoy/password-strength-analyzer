@@ -1,6 +1,6 @@
 {
   "name": "password-strength-analyzer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "password-strength-estimator is a React hook for assessing password strength. It provides feedback on password validity based on configurable rules, calculates the password score, and evaluates its entropy",
   "type": "module",
   "main": "dist/password-strength-analyzer.cjs.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "test": "vitest",
     "build": "tsc -b && vite build",
-		"prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint ."
   },
   "repository": {
