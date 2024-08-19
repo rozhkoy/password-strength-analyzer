@@ -26,6 +26,9 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Build
+        run: npm run build
+
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
