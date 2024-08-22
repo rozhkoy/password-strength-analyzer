@@ -1,12 +1,12 @@
-import { IValidatePasswordRulesResponse, IValidationRule } from "./types";
+import { IValidatePasswordRulesResponse, IValidationRule } from "../types";
 
-export function calculateEntropy(points: number, password: string) {
+export function calculateEntropy(points: number, password: string): number {
   if (!points || !password) return 0;
   const passwordLength = new Set(password).size;
   return passwordLength * Math.log2(points);
 }
 
-export function calculatePasswordScore(entropy: number, minBestEntropy: number, maxScore: number) {
+export function calculatePasswordScore(entropy: number, minBestEntropy: number, maxScore: number): number {
   if (entropy == 0) return 0;
   return Math.min(Math.floor(entropy / (minBestEntropy / (maxScore - 1))) + 1, maxScore);
 }

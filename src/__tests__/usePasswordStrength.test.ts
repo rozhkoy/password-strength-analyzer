@@ -1,7 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
-
-import { usePasswordStrength } from "./usePasswordStrength";
 import { describe, expect, it } from "vitest";
+import { usePasswordStrength } from "../usePasswordStrength";
 
 describe("usePasswordStrength", () => {
   it("validates given password by rules with default options", () => {
