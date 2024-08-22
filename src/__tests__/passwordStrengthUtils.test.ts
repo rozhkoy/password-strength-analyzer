@@ -1,5 +1,5 @@
-import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from ".";
 import { describe, expect, it } from "vitest";
+import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "../utils";
 
 describe("calculateEntropy", () => {
   it("should return 0 if points is 0", () => {

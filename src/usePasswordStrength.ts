@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
-import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "../../utils/passwordStrengthUtils";
 import { IUsePasswordStrengthActions, IUsePasswordStrengthParams, IValidationRule } from "./types";
+import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "./utils";
 
 const defaultMessages = {
   minLowercaseMessage: "At least 1 lowercase letter",
