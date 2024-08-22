@@ -37,8 +37,9 @@ export function validatePasswordStrength(
     isValid = score >= minRequiredScore && points === 96;
   } else if (mode === "regex") {
     isValid = points === 96;
+  } else {
+    isValid = score >= minRequiredScore;
   }
-  isValid = score >= minRequiredScore;
 
   return { validationResult, score, entropy, password, isValid };
 }
