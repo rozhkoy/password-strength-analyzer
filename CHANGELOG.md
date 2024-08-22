@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/rozhkoy/password-strength-analyzer/compare/v1.0.1...v1.1.0) (2024-08-22)
+
+
+### Bug Fixes
+
+* change interface for validatePasswordStrength options and add returned type for utils functions ([e9187e9](https://github.com/rozhkoy/password-strength-analyzer/commit/e9187e9a3094749d96b02457eca7169a5cfb7d23))
+
+
+### Features
+
+* create standalone function from hook, updating usage pattern ([b7fddbb](https://github.com/rozhkoy/password-strength-analyzer/commit/b7fddbbac0eedb41f91ea8d7fe4bda6fdd9f748c))
+
 ## [1.0.1](https://github.com/rozhkoy/password-strength-analyzer/compare/v1.0.0...v1.0.1) (2024-08-19)
 
 
