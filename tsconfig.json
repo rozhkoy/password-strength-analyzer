@@ -10,7 +10,6 @@
       "target": "esnext",
       "module": "esnext",
       "lib": ["dom", "esnext"],
-      "jsx": "react"
     },
     "include": ["src/**/*"],
     "exclude": [

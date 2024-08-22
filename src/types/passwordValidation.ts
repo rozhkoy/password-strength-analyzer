@@ -16,14 +16,6 @@ export interface IValidatePasswordStrengthOptions {
   minRequiredScore?: number;
 }
 
-export interface IUsePasswordStrengthActions {
-  validationResult: IValidationRule[];
-  score: number;
-  entropy: number;
-  validatePassword: (password: string) => boolean;
-  password: string;
-}
-
 export interface IValidationRule {
   regex: RegExp;
   points: number;
@@ -37,16 +29,6 @@ export interface IValidationMessages {
   minSpecialCharMessage?: string;
   minNumberMessage?: string;
   minLengthMessage?: string;
-}
-
-export type IUsePasswordStrengthModes = "strict" | "regex" | "score";
-
-export interface IUsePasswordStrengthParams {
-  maxScore?: number;
-  configMessages?: IValidationMessages;
-  mode?: IUsePasswordStrengthModes;
-  minBestEntropy?: number;
-  minRequiredScore?: number;
 }
 
 export interface IValidatePasswordRulesResponse {
