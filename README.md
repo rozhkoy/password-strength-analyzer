@@ -1,13 +1,25 @@
 # Password Strength Analyzer
 
-`password-strength-analyzer` is a React hook for evaluating the strength of passwords. It provides a customizable and easy-to-use way to validate password strength, calculate entropy, and assign scores based on predefined rules.
+`password-strength-analyzer` is a utility for evaluating the strength of passwords. It provides a customizable and easy-to-use way to validate password strength, calculate entropy, and assign scores based on predefined rules. This tool can be used independently of any frameworks or libraries, making it versatile for various applications.
+
+The analyzer is based on **entropy calculations** and **predefined regular expression rules**. These features ensure that password strength is assessed rigorously according to established security criteria.
+
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration Options](#configuration-options)
+- [Usage](#usage)
+  - [Basic Usage](#basic-usage)
+  - [Example of Customized Usage](#example-of-customized-usage)
+- [API](#api)
+  - [`validatePasswordStrength`](#validatepasswordstrengthpassword-string-params-ivalidatepasswordstrengthoptions-ivalidatepasswordstrengthresponse)
+- [License](#license)
+- [Contributing](#contributing)
 
 ## Features
 
-- **Customizable Validation Rules:** Define your own rules for password validation.
 - **Entropy Calculation:** Compute the entropy of the password to gauge its strength.
 - **Score Calculation:** Assign a score to the password based on entropy and configurable parameters.
-- **Flexible Modes:** Choose between strict, regex, or score-based validation modes.
+- **Flexible Modes:** Choose between **strict**, **regex**, or **score** based validation modes.
 - **Configurable Messages:** Customize the messages displayed for different validation rules.
 - **TypeScript Support:** Fully typed for improved development experience with TypeScript.
 
@@ -63,99 +75,112 @@ You can configure the hook with various options:
 
 ### Basic Usage
 
-Here's a basic example of how to use the `usePasswordStrength` hook in a React component:
+Here's a basic example of how to use the `validatePasswordStrength`:
 
 ```typescript
-import React from "react";
-import { usePasswordStrength } from "password-strength-analyzer";
+import { validatePasswordStrength } from "password-strength-analyzer";
 
-const PasswordInput: React.FC = () => {
-  const { validatePassword, score, entropy, validationResult } = usePasswordStrength();
+const password: string = "ZAQ!2wsx!";
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const password = event.target.value;
-    validatePassword(password);
-  };
+const result = validatePasswordStrength(password);
 
-  return (
-    <div>
-      <input type="password" onChange={handleChange} />
-      <div>
-        <p>Score: {score}</p>
-        <p>Entropy: {entropy}</p>
-        <ul>
-          {validationResult.map((rule, index) => (
-            <li key={index} style={{ color: rule.passed ? "green" : "red" }}>
-              {rule.message}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
+console.log("Password:", result.password);
+console.log("Score:", result.score);
+console.log("Entropy:", result.entropy);
+console.log("Is Valid:", result.isValid);
+console.log("Validation Result:", result.validationResult);
 
-export default PasswordInput;
+// result:
+// {
+//   "validationResult": [
+//     { "regex": /[a-z]/, "points": 26, "message": "At least 1 lowercase letter", "passed": true },
+//     { "regex": /[A-Z]/, "points": 26, "message": "At least 1 uppercase letter", "passed": true },
+//     { "regex": /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, "points": 33, "message": "At least 1 special character", "passed": true },
+//     { "regex": /[0-9]/, "points": 10, "message": "At least 1 number", "passed": true },
+//     { "regex": /.{8,}/, "points": 1, "message": "At least 8 characters long", "passed": true }
+//   ],
+//   "score": 3,
+//   "entropy": 52.67970000576925,
+//   "password": "ZAQ!2wsx!",
+//   "isValid": true
+// }
 ```
 
 ### Example of Customized Usage
 
-Here's an example of how to use the `usePasswordStrength` hook with customized options:
+Here's an example of how to use the `validatePasswordStrength` with customized options:
 
 ```typescript
-import { usePasswordStrength } from "password-strength-analyzer";
+import { validatePasswordStrength } from "password-strength-analyzer";
 
-const { validatePassword, score, entropy, validationResult } = usePasswordStrength({
-  maxScore: 10,
-  minBestEntropy: 100,
-  minRequiredScore: 7,
-  mode: "score",
+const password: string = "ZAQ!2wsx!";
+
+const result = validatePasswordStrength(password, {
+  maxScore: 7, // Set the maximum score
+  minBestEntropy: 90, // Minimum entropy
+  minRequiredScore: 4, // Minimum required score
+  mode: "strict", // Validation mode
   configMessages: {
-    minLowercaseMessage: "Need at least one lowercase letter.",
-    minUppercaseMessage: "Must include an uppercase letter.",
-    minSpecialCharMessage: "Special character required.",
-    minNumberMessage: "Include at least one number.",
-    minLengthMessage: "Minimum length of 8 characters.",
+    minLowercaseMessage: "Must include at least one lowercase letter",
+    minUppercaseMessage: "Must include at least one uppercase letter",
+    minSpecialCharMessage: "Must include at least one special character",
+    minNumberMessage: "Must include at least one number",
+    minLengthMessage: "Must be at least 10 characters long",
   },
 });
 
-const password = "ZAQ!2wsxXSW@1qaz";
-const isValid = validatePassword(password);
+console.log("Password:", result.password);
+console.log("Score:", result.score);
+console.log("Entropy:", result.entropy);
+console.log("Is Valid:", result.isValid);
+console.log("Validation Result:", result.validationResult);
 
-console.log("Password Valid:", isValid);
-console.log("Password Score:", score);
-console.log("Password Entropy:", entropy);
-console.log("Validation Results:", validationResult);
+// result:
+// {
+//   "validationResult": [
+//     { "regex": /[a-z]/, "points": 26, "message": "At least 1 lowercase letter", "passed": true },
+//     { "regex": /[A-Z]/, "points": 26, "message": "At least 1 uppercase letter", "passed": true },
+//     { "regex": /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, "points": 33, "message": "At least 1 special character", "passed": true },
+//     { "regex": /[0-9]/, "points": 10, "message": "At least 1 number", "passed": true },
+//     { "regex": /.{8,}/, "points": 1, "message": "At least 8 characters long", "passed": true }
+//   ],
+//   "score": 3,
+//   "entropy": 52.67970000576925,
+//   "password": "ZAQ!2wsx!",
+//   "isValid": false
+// }
 ```
 
 ## API
 
-### `usePasswordStrength(params?: IUsePasswordStrengthParams): IUsePasswordStrengthActions`
+### `validatePasswordStrength(password: string, params?: IValidatePasswordStrengthOptions): IValidatePasswordStrengthResponse`
 
 #### Parameters
 
-- **`params`** (optional): Configuration options for the hook. You can customize validation rules, set minimum entropy, and adjust the scoring system.
+- **`password`** (`string`): The password to be validated.
+
+- **`params`** (`optional`): Configuration options for the function. You can customize validation rules, set minimum entropy, adjust the scoring system, and provide custom messages.
 
 #### Returns
 
-- **`validationResult: IValidationRule[]`**: An array of validation rules with their status. Each rule contains:
+- **`validationResult`** (`IValidationRule[]`): An array of validation rules with their status. Each rule contains:
 
-  - `regex`: Regular expression used for validation.
-  - `points`: Points assigned for passing the rule.
-  - `message`: Message to display when the rule is not passed.
-  - `passed`: Boolean indicating whether the rule was passed.
+  - **`regex`** (`RegExp`): Regular expression used for validation.
+  - **`points`** (`number`): Points assigned for passing the rule.
+  - **`message`** (`string`): Message to display when the rule is not passed.
+  - **`passed`** (`boolean`): Boolean indicating whether the rule was passed.
 
-- **`score: number`**: The score assigned to the password based on its entropy and the configured scoring system.
+- **`score`** (`number`): The score assigned to the password based on its entropy and the configured scoring system.
 
-- **`entropy: number`**: The entropy of the password, representing its strength and complexity.
+- **`entropy`** (`number`): The entropy of the password, representing its strength and complexity.
 
-- **`validatePassword(password: string): boolean`**: Function to validate the password. It updates the score and entropy based on the provided password and returns a boolean indicating whether the password meets the configured criteria.
+- **`password`** (`string`): The current password being evaluated by the function.
 
-- **`password: string`**: The current password being evaluated by the hook.
+- **`isValid`** (`boolean`): Boolean indicating whether the password meets the configured criteria.
 
 ## License
 
-MIT License. See the LICENSE file for details.
+MIT — use for any purpose. Would be great if you could leave a note about the original developers. Thanks!
 
 ## Contributing
 
