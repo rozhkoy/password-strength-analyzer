@@ -1,6 +1,6 @@
 {
   "name": "password-strength-analyzer",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A utility for evaluating password strength using entropy calculations and customizable rules. It’s easy to configure and doesn’t rely on any specific frameworks, making it highly adaptable for various applications.",
   "type": "module",
   "main": "dist/password-strength-analyzer.cjs.js",
