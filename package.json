@@ -1,7 +1,7 @@
 {
   "name": "password-strength-analyzer",
   "version": "1.0.1",
-  "description": "password-strength-estimator is a React hook for assessing password strength. It provides feedback on password validity based on configurable rules, calculates the password score, and evaluates its entropy",
+  "description": "A utility for evaluating password strength using entropy calculations and customizable rules. It’s easy to configure and doesn’t rely on any specific frameworks, making it highly adaptable for various applications.",
   "type": "module",
   "main": "dist/password-strength-analyzer.cjs.js",
   "module": "dist/password-strength-analyzer.es.js",
@@ -55,8 +55,6 @@
   },
   "homepage": "https://github.com/rozhkoy/password-strength-analyzer#readme",
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "vite-plugin-dts": "^4.0.3"
   },
   "devDependencies": {
@@ -65,16 +63,8 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^10.1.6",
     "@semantic-release/npm": "^12.0.1",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.0.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "jsdom": "^24.1.1",
     "semantic-release": "^24.1.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
