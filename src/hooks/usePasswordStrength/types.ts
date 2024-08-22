@@ -13,7 +13,7 @@ export interface IValidationRule {
   passed: boolean;
 }
 
-interface IValidationMessages {
+export interface IValidationMessages {
   minLowercaseMessage?: string;
   minUppercaseMessage?: string;
   minSpecialCharMessage?: string;

@@ -1,6 +1,5 @@
-import { IUsePasswordStrengthParams } from "../hooks/usePasswordStrength";
 import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "../utils/passwordStrengthUtils";
-import { IValidatePasswordStrengthResponse } from "./types";
+import { IValidatePasswordStrengthOptions, IValidatePasswordStrengthResponse } from "./types";
 
 const defaultMessages = {
   minLowercaseMessage: "At least 1 lowercase letter",
@@ -12,7 +11,7 @@ const defaultMessages = {
 
 export function validatePasswordStrength(
   password: string,
-  { maxScore = 5, minBestEntropy = 80, minRequiredScore = 3, mode = "strict", configMessages }: IUsePasswordStrengthParams = {}
+  { maxScore = 5, minBestEntropy = 80, minRequiredScore = 3, mode = "strict", configMessages }: IValidatePasswordStrengthOptions = {}
 ): IValidatePasswordStrengthResponse {
   const messages = { ...defaultMessages, ...configMessages };
   minRequiredScore = minRequiredScore > maxScore ? maxScore : minRequiredScore;
