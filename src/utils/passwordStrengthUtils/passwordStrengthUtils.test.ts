@@ -1,4 +1,4 @@
-import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "./passwordStrengthUtils";
+import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from ".";
 import { describe, expect, it } from "vitest";
 
 describe("calculateEntropy", () => {

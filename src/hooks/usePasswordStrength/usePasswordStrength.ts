@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "./passwordStrengthUtils";
+import { calculateEntropy, calculatePasswordScore, validatePasswordRules } from "../../utils/passwordStrengthUtils";
 import { IUsePasswordStrengthActions, IUsePasswordStrengthParams, IValidationRule } from "./types";
 
 const defaultMessages = {

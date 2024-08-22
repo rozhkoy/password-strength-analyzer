@@ -1,4 +1,4 @@
-import { IValidatePasswordRulesResponse, IValidationRule } from "./types";
+import { IValidatePasswordRulesResponse, IValidationRule } from "../../hooks/usePasswordStrength/types";
 
 export function calculateEntropy(points: number, password: string) {
   if (!points || !password) return 0;
