@@ -4,6 +4,7 @@
 
 The analyzer is based on **entropy calculations** and **predefined regular expression rules**. These features ensure that password strength is assessed rigorously according to established security criteria.
 
+- [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
 - [Configuration Options](#configuration-options)
@@ -15,6 +16,11 @@ The analyzer is based on **entropy calculations** and **predefined regular expre
 - [License](#license)
 - [Contributing](#contributing)
 
+## Demo
+
+- [Repository on GitHub](https://github.com/rozhkoy/demo-password-strength-analyzer)
+- [Live Demo](https://demo-password-strength-analyzer.vercel.app/)
+
 ## Features
 
 - **Entropy Calculation:** Compute the entropy of the password to gauge its strength.
@@ -25,10 +31,20 @@ The analyzer is based on **entropy calculations** and **predefined regular expre
 
 ## Installation
 
-To install the package, use npm:
+### To install the package, use npm:
 
 ```bash
 npm install password-strength-analyzer
+```
+
+### Install via Browser Script Tag using UNPKG
+
+```html
+<script src="https://unpkg.com/password-strength-analyzer/dist/password-strength-analyzer.umd.js"></script>
+<script type="text/javascript">
+  const password: string = "ZAQ!2wsx!";
+  const result = validatePasswordStrength(password);
+</script>
 ```
 
 ## Configuration Options
