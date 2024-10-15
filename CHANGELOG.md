@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/rozhkoy/password-strength-analyzer/compare/v2.0.0...v2.1.0) (2024-10-15)
+
+
+### Features
+
+* add demo and unpkg links to readme ([cfe5447](https://github.com/rozhkoy/password-strength-analyzer/commit/cfe5447e23b988dca98496acd5d6117ab2cbcca9))
+
 # [2.0.0](https://github.com/rozhkoy/password-strength-analyzer/compare/v1.0.1...v2.0.0) (2024-08-22)
 
 
